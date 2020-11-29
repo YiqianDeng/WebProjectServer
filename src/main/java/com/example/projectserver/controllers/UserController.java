@@ -10,6 +10,7 @@ import java.util.List;
 
 
 @RestController   //add behavior accessible on the web
+@CrossOrigin(origins = "*") //no limited to access
 public class UserController {
     userService service = new userService();
     List<User> users = new ArrayList<>();
@@ -28,6 +29,13 @@ public class UserController {
     public User findUserByID (
             @PathVariable("userId")String userId) {
         return service.findUserByID(userId);
+    }
+
+
+    @GetMapping("/api/users/{username}")
+    public User findUserByUsername (
+            @PathVariable("username")String username) {
+        return service.findUserByUsername(username);
     }
 
     @PostMapping("/api/users")

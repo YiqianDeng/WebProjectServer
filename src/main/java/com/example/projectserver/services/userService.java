@@ -29,6 +29,15 @@ public class userService {
         return null;
     }
 
+    public User findUserByUsername (String username) {
+        for(User user: users) {
+            if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public User createUser(@RequestBody User user) {
         user.setId((new Date()).toString());
         users.add(user);
