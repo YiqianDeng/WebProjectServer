@@ -1,17 +1,13 @@
-package com.example.projectserver.controllers;
+package com.example.projectserver.services;
 
 import com.example.projectserver.models.User;
-import com.example.projectserver.services.userService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
-@RestController   //add behavior accessible on the web
-public class UserController {
-    userService service = new userService();
+public class userService {
     List<User> users = new ArrayList<>();
     {
         users.add(new User("123", "sherry1111@gmail.com", "123"));
@@ -19,25 +15,36 @@ public class UserController {
         users.add(new User("345", "sherry3333@gmail.com", "345"));
     }
 
-    @GetMapping("/api/users")
     public List<User> findAllUsers() {
-        return service.findAllUsers();
+        return users;
     }
 
-    @GetMapping("/api/users/{userId}")
-    public User findUserByID (
-            @PathVariable("userId")String userId) {
-        return service.findUserByID(userId);
+
+    public User findUserByID (String userId) {
+        for(User user: users) {
+            if (user.getId().equals(userId)) {
+                return user;
+            }
+        }
+        return null;
     }
 
-    @PostMapping("/api/users")
     public User createUser(@RequestBody User user) {
-        return service.createUser(user);
+        user.setId((new Date()).toString());
+        users.add(user);
+        return user;
     }
 
-    @PutMapping("/api/users/{userId}")
-    public Integer updateUser(@PathVariable("userId") String userId, @RequestBody User newUser) {
-        return service.updateUser(userId, newUser);
+
+    public Integer updateUser(String userId, User newUser) {
+        for(User user: users) {
+            if(user.getId().equals(userId)){
+                user.setPassword(newUser.getPassword());
+                user.setUsername(newUser.getUsername());
+                return 1;
+            }
+        }
+        return 0;
     }
 
 //    @DeleteMapping("/api/users")
@@ -50,4 +57,6 @@ public class UserController {
 //        }
 //        return 0;
 //    }
+
+
 }
