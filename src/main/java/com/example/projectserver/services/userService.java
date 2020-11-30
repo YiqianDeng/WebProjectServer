@@ -50,6 +50,10 @@ public class userService {
             if(user.getId().equals(userId)){
                 user.setPassword(newUser.getPassword());
                 user.setUsername(newUser.getUsername());
+                user.setAddress(newUser.getAddress());
+                user.setDateofbirth(newUser.getDateofbirth());
+                user.setEmail(newUser.getEmail());
+                user.setPhone(newUser.getPhone());
                 return 1;
             }
         }

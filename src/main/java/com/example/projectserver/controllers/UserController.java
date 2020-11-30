@@ -25,16 +25,13 @@ public class UserController {
         return service.findAllUsers();
     }
 
-    @GetMapping("/api/users/{userId}")
-    public User findUserByID (
-            @PathVariable("userId")String userId) {
-        return service.findUserByID(userId);
-    }
-
+//    @GetMapping("/api/users/{userId}")
+//    public User findUserByID (@PathVariable("userId")String userId) {
+//        return service.findUserByID(userId);
+//    }
 
     @GetMapping("/api/users/{username}")
-    public User findUserByUsername (
-            @PathVariable("username")String username) {
+    public User findUserByUsername (@PathVariable("username")String username) {
         return service.findUserByUsername(username);
     }
 
