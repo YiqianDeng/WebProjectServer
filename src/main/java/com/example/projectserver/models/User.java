@@ -8,6 +8,9 @@ public class User {
     private String dateofbirth;
     private String address;
     private String phone;
+    private String type;
+
+
 
     public User() {
     }
@@ -23,6 +26,14 @@ public class User {
         this.username = username;
         this.password = password;
         this.email = email;
+    }
+
+    public User(String id, String username, String password, String email, String type) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.type = type;
     }
 
     public void setEmail(String email) {
@@ -82,5 +93,11 @@ public class User {
         return password;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
 
+    public String getType() {
+        return type;
+    }
 }

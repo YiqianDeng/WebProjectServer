@@ -10,15 +10,14 @@ import java.util.List;
 public class userService {
     List<User> users = new ArrayList<>();
     {
-        users.add(new User("123", "sherry1111@gmail.com", "123"));
-        users.add(new User("234", "sherry2222@gmail.com", "234"));
-        users.add(new User("345", "sherry3333@gmail.com", "345"));
+        users.add(new User("123", "admin_1", "123", "admin1@gmail.com", "ADMIN"));
+        users.add(new User("234", "admin_2", "234", "admin2@gmail.com", "ADMIN"));
+        users.add(new User("345", "admin_3", "345", "admin3@gmail.com", "ADMIN"));
     }
 
     public List<User> findAllUsers() {
         return users;
     }
-
 
     public User findUserByID (String userId) {
         for(User user: users) {
@@ -27,6 +26,15 @@ public class userService {
             }
         }
         return null;
+    }
+
+    public Integer findUserExistOrNot(String username) {
+        for(User user: users) {
+            if (user.getUsername().equals(username)) {
+                return 1;
+            }
+        }
+        return -1;
     }
 
     public User findUserByUsername (String username) {
