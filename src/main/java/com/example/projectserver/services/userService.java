@@ -28,22 +28,13 @@ public class userService {
         return null;
     }
 
-    public Integer findUserExistOrNot(String username) {
-        for(User user: users) {
-            if (user.getUsername().equals(username)) {
-                return 1;
-            }
-        }
-        return -1;
-    }
-
     public User findUserByUsername (String username) {
         for(User user: users) {
             if (user.getUsername().equals(username)) {
                 return user;
             }
         }
-        return null;
+        return new User("0", "0", "0");
     }
 
     public User createUser(@RequestBody User user) {
