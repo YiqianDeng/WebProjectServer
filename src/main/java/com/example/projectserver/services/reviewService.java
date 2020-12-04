@@ -31,6 +31,7 @@ public class reviewService {
     public Review createReview(String userId, String resId, Review newReview) {
         newReview.setRestaurantId(resId);
         newReview.setUserId(userId);
+        reviews.add(newReview);
         return newReview;
     }
 
