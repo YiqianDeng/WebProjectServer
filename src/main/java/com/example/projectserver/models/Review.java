@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    private Integer id;
     private String restaurantId;
     private String userName;
     private String text;

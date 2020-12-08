@@ -10,7 +10,7 @@ import java.util.List;
 //connect database
 public interface ReviewRepository extends CrudRepository<Review, Integer> {
 
-    @Query(value = "select * from reviews where restaurantId =: restaurantId and userName =:userName", nativeQuery = true)
+    @Query(value = "select * from reviews where restaurantId =:restaurantId and userName =:userName", nativeQuery = true)
     public List<Review> findReviewsByRestaurantAndUser(String restaurantId, String userName);
 
 }

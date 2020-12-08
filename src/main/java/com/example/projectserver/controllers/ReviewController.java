@@ -12,7 +12,9 @@ import java.util.List;
 @RestController   //add behavior accessible on the web
 @CrossOrigin(origins = "*")
 public class ReviewController {
-    reviewService service = new reviewService();
+
+    @Autowired
+    reviewService service;
 
 
     @GetMapping("/api/reviews")
