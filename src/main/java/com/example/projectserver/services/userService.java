@@ -25,7 +25,6 @@ public class userService {
 //    public User findUserByUsername (String username) {
 //        return usersRepository.findUserByUsername(username);
 //    }
-
     public Integer createUser(@RequestBody User user) {
         return usersRepository.save(user).getId(); //insert
     }
