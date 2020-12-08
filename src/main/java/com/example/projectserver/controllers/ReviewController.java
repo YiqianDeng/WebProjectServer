@@ -20,18 +20,20 @@ public class ReviewController {
         return service.findAllReviews();
     }
 
-    @GetMapping("/api/{restaurantId}/{userId}/reviews")
-    public List<Review> findReviewsByRestaurantAndUser(@PathVariable("userId")String userId,
+    @GetMapping("/api/reviews/{restaurantId}/{userName}")
+    public List<Review> findReviewsByRestaurantAndUser(@PathVariable("userName")String userName,
                                                        @PathVariable("restaurantId") String restaurantId) {
-        return service.findReviewsByRestaurantAndUser(userId,restaurantId);
+        return service.findReviewsByRestaurantAndUser(userName,restaurantId);
     }
 
-    @PostMapping("/api/{restaurantId}/{userId}/reviews")
-    public Review createReview(@PathVariable("userId")String userId,
+    @PostMapping("/api/reviews/{restaurantId}/{userName}")
+    public Review createReview(@PathVariable("userName")String userName,
                                @PathVariable("restaurantId") String restaurantId,
                                @RequestBody Review newReview) {
-        return service.createReview(userId, restaurantId, newReview);
+        return service.createReview(userName, restaurantId, newReview);
     }
+
+
 
 
 }
