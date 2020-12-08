@@ -1,15 +1,30 @@
 package com.example.projectserver.models;
 
+
+import javax.persistence.*;
+
+@Entity
+
+@Table(name="reviews")
+
 public class Review {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private String restaurantId;
     private String userName;
     private String text;
+
+    public Review() {
+
+    }
 
     public Review(String restaurantId,String userName, String text) {
         this.restaurantId = restaurantId;
         this.userName = userName;
         this.text = text;
     }
+
 
     public String getRestaurantId() {
         return restaurantId;

@@ -1,33 +1,33 @@
 package com.example.projectserver.services;
 
 import com.example.projectserver.models.Review;
+import com.example.projectserver.repositories.ReviewRepository;
+import com.example.projectserver.repositories.UsersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class reviewService {
-    List<Review> reviews = new ArrayList<>();
-
+    @Autowired
+    ReviewRepository reviewRepository;
 
     public List<Review> findAllReviews() {
-        return reviews;
+
+        return (List<Review>) reviewRepository.findAll();
     }
 
     public List<Review> findReviewsByRestaurantAndUser(String userName, String resId) {
-        List<Review> newReviews = new ArrayList<>();
-        for(Review review: reviews) {
-            if(review.getUserName().equals(userName) && review.getRestaurantId().equals(resId)) {
-                newReviews.add(review);
-            }
-        }
-        return newReviews;
+
+        return reviewRepository.findReviewsByRestaurantAndUser(resId, userName);
     }
 
     public Review createReview(String userName, String resId, Review newReview) {
         newReview.setRestaurantId(resId);
         newReview.setUserName(userName);
-        reviews.add(newReview);
-        return newReview;
+        return reviewRepository.save(newReview);
     }
 
 
