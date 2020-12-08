@@ -42,11 +42,9 @@ public class userService {
         }else {
             return null;
         }
-
     }
 
     public void deleteUser(Integer userId) {
         usersRepository.deleteById(userId);
     }
-
 }
