@@ -2,12 +2,8 @@ package com.example.projectserver.services;
 
 import com.example.projectserver.models.Review;
 import com.example.projectserver.repositories.ReviewRepository;
-import com.example.projectserver.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import java.util.ArrayList;
 import java.util.List;
 @Service
 public class reviewService {
