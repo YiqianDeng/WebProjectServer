@@ -20,18 +20,18 @@ public class UserController {
         return service.findAllUsers();
     }
 
-    @GetMapping("/api/users/{userId}")
-    public User findUserByID (@PathVariable("userId")Integer userId) {
-        return service.findUserByID(userId);
-    }
-
-//    @GetMapping("/api/users/{username}")
-//    public User findUserByUsername (@PathVariable("username")String username) {
-//        return service.findUserByUsername(username);
+//    @GetMapping("/api/users/{userId}")
+//    public User findUserByID (@PathVariable("userId")Integer userId) {
+//        return service.findUserByID(userId);
 //    }
 
+    @GetMapping("/api/users/{username}")
+    public User findUserByUsername (@PathVariable("username")String username) {
+        return service.findUserByUsername(username);
+    }
+
     @PostMapping("/api/users")
-    public Integer createUser(@RequestBody User user) {
+    public User createUser(@RequestBody User user) {
         return service.createUser(user);
     }
 

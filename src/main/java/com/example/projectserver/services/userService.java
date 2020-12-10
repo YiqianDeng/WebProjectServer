@@ -18,15 +18,16 @@ public class userService {
         return (List<User>) usersRepository.findAll();
     }
 
-    public User findUserByID (Integer userId) {
-        return usersRepository.findById(userId).get();
+//    public User findUserByID (Integer userId) {
+//        return usersRepository.findById(userId).get();
+//    }
+
+    public User findUserByUsername (String username) {
+        return usersRepository.findUserByUsername(username);
     }
 
-//    public User findUserByUsername (String username) {
-//        return usersRepository.findUserByUsername(username);
-//    }
-    public Integer createUser(@RequestBody User user) {
-        return usersRepository.save(user).getId(); //insert
+    public User createUser(User user) {
+        return usersRepository.save(user); //insert
     }
 
     public User updateUser(Integer userId, User newUser) {
