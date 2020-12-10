@@ -18,7 +18,4 @@ public interface ReviewRepository extends CrudRepository<Review, Integer> {
     @Query(value = "select * from reviews where restaurant_id =:restaurantId", nativeQuery = true)
     public List<Review> findReviewsByRestaurant( String restaurantId);
 
-
-
-
 }

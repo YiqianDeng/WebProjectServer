@@ -5,12 +5,9 @@ import com.example.projectserver.models.Review;
 import com.example.projectserver.services.reviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-<<<<<<< HEAD
-
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
-=======
->>>>>>> 03180bd6d76ba4349b4d421133f4599154cc2866
+
 import java.util.List;
 
 
