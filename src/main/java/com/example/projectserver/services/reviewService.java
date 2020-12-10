@@ -20,6 +20,11 @@ public class reviewService {
         return (List<Review>) reviewRepository.findAll();
     }
 
+
+    public Review findReviewById(int reviewId) {
+        return reviewRepository.findById(reviewId).get();
+    }
+
     public List<Review> findReviewsByRestaurantAndUser(String userName, String resId) {
 
         return reviewRepository.findReviewsByRestaurantAndUser(resId, userName);
@@ -31,6 +36,32 @@ public class reviewService {
         return reviewRepository.save(newReview);
     }
 
+    public Review updateReview(int reviewId, Review newReview) {
+        Review r = reviewRepository.findById(reviewId).get();
+        r.setText(newReview.getText());
+        return reviewRepository.save(r);
+    }
 
+    public List<Review> updateReviews(String userName, String resId, List<Review> newReviews) {
+        List<Review> reviewsForRestaurantAndUser = reviewRepository.findReviewsByRestaurantAndUser(resId, userName);
+        for(Review r: reviewsForRestaurantAndUser) {
+            reviewRepository.delete(r);
+        }
+
+        for(Review newReview: newReviews) {
+            reviewRepository.save(newReview);
+        }
+        return reviewRepository.findReviewsByRestaurantAndUser(resId, userName);
+    }
+
+    public void deleteReview(int reviewId) {
+        reviewRepository.deleteById(reviewId);
+    }
+
+
+    public List<Review> findReviewsByRestaurant(String resId) {
+        return reviewRepository.findReviewsByRestaurant(resId);
+    }
 
 }
+

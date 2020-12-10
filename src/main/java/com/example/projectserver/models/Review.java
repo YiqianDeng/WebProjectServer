@@ -19,12 +19,24 @@ public class Review {
 
     }
 
-    public Review(String restaurantId,String userName, String text) {
+    public Review(int id, String restaurantId,String userName, String text) {
+        this.id = id;
         this.restaurantId = restaurantId;
         this.userName = userName;
         this.text = text;
     }
 
+    public Review( String restaurantId,String userName, String text) {
+        this.id = id;
+        this.restaurantId = restaurantId;
+        this.userName = userName;
+        this.text = text;
+    }
+
+
+    public int getId() {
+        return id;
+    }
 
     public String getRestaurantId() {
         return restaurantId;
@@ -38,6 +50,7 @@ public class Review {
         return text;
     }
 
+
     public void setRestaurantId( String newResId) {
         this.restaurantId = newResId;
     }
@@ -47,5 +60,6 @@ public class Review {
     }
 
     public void setText (String newText) { this.text = newText;}
+
 
 }
