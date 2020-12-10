@@ -1,7 +1,6 @@
 package com.example.projectserver.repositories;
 
 import com.example.projectserver.models.User;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 //connect database
