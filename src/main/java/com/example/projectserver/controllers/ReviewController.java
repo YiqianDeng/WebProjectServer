@@ -63,7 +63,7 @@ public class ReviewController {
         service.deleteReview(reviewId);
     }
 
-    @GetMapping("/api/reviews/{restaurantId}")
+    @GetMapping("/api/reviews/restaurants/{restaurantId}")
     public List<Review> findReviewsByRestaurant(@PathVariable("restaurantId") String restaurantId) {
         return service.findReviewsByRestaurant (restaurantId);
     }
